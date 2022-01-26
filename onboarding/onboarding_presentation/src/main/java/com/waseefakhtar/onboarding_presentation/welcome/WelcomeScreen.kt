@@ -15,10 +15,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.waseefakhtar.core.R
+import com.waseefakhtar.core_ui.LocalSpacing
 
 @Composable
 fun WelcomeScreen() {
-    val context = LocalContext.current
+    val space = LocalSpacing.current
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -29,6 +30,7 @@ fun WelcomeScreen() {
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.h1
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(space.spaceMedium))
+        
     }
 }
