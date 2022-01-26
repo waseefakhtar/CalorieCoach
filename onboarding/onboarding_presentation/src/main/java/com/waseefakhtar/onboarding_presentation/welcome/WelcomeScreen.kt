@@ -31,6 +31,6 @@ fun WelcomeScreen() {
             style = MaterialTheme.typography.h1
         )
         Spacer(modifier = Modifier.height(space.spaceMedium))
-        
+
     }
 }
