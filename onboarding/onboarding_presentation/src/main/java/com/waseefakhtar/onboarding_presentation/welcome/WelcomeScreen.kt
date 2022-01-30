@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,9 +21,11 @@ import com.waseefakhtar.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen() {
-    val space = LocalSpacing.current
+    val spacing = LocalSpacing.current
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(spacing.spaceMedium),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -31,7 +34,7 @@ fun WelcomeScreen() {
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.h1
         )
-        Spacer(modifier = Modifier.height(space.spaceMedium))
+        Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(text = stringResource(
             id = R.string.next),
             onClick = { /*TODO*/ },
