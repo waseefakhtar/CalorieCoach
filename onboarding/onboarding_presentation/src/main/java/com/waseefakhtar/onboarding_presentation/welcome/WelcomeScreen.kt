@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.waseefakhtar.core.R
 import com.waseefakhtar.core_ui.LocalSpacing
+import com.waseefakhtar.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen() {
@@ -31,6 +32,10 @@ fun WelcomeScreen() {
             style = MaterialTheme.typography.h1
         )
         Spacer(modifier = Modifier.height(space.spaceMedium))
-
+        ActionButton(text = stringResource(
+            id = R.string.next),
+            onClick = { /*TODO*/ },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
     }
 }
