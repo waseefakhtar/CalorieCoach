@@ -7,9 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.waseefakhtar.core.domain.use_case.FilterOutDigits
 import com.waseefakhtar.core.util.UiEvent
-import com.waseefakhtar.core.util.UiText
-import com.waseefakhtar.tracker_domain.use_case.TrackerUseCases
-import com.waseefakhtar.tracker_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -18,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val trackerUseCases: TrackerUseCases,
+    //private val trackerUseCases: TrackerUseCases,
     private val filterOutDigits: FilterOutDigits
 ): ViewModel() {
 
@@ -71,37 +68,37 @@ class SearchViewModel @Inject constructor(
                 isSearching = true,
                 trackableFood = emptyList()
             )
-            trackerUseCases
-                .searchFood(state.query)
-                .onSuccess { foods ->
-                    state = state.copy(
-                        trackableFood = foods.map {
-                            TrackableFoodUiState(it)
-                        },
-                        isSearching = false,
-                        query = ""
-                    )
-                }
-                .onFailure {
-                    state = state.copy(isSearching = false)
-                    _uiEvent.send(
-                        UiEvent.ShowSnackbar(
-                            UiText.StringResource(R.string.error_something_went_wrong)
-                        )
-                    )
-                }
+//            trackerUseCases
+//                .searchFood(state.query)
+//                .onSuccess { foods ->
+//                    state = state.copy(
+//                        trackableFood = foods.map {
+//                            TrackableFoodUiState(it)
+//                        },
+//                        isSearching = false,
+//                        query = ""
+//                    )
+//                }
+//                .onFailure {
+//                    state = state.copy(isSearching = false)
+//                    _uiEvent.send(
+//                        UiEvent.ShowSnackbar(
+//                            UiText.StringResource(R.string.error_something_went_wrong)
+//                        )
+//                    )
+//                }
         }
     }
 
     private fun trackFood(event: SearchEvent.OnTrackFoodClick) {
         viewModelScope.launch {
             val uiState = state.trackableFood.find { it.food == event.food }
-            trackerUseCases.trackFood(
-                food = uiState?.food ?: return@launch,
-                amount = uiState.amount.toIntOrNull() ?: return@launch,
-                mealType = event.mealType,
-                date = event.date
-            )
+//            trackerUseCases.trackFood(
+//                food = uiState?.food ?: return@launch,
+//                amount = uiState.amount.toIntOrNull() ?: return@launch,
+//                mealType = event.mealType,
+//                date = event.date
+//            )
             _uiEvent.send(UiEvent.NavigateUp)
         }
     }
