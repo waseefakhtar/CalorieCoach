@@ -14,8 +14,10 @@ import androidx.navigation.compose.rememberNavController
 import com.waseefakhtar.caloriecoach.navigation.navigate
 import com.waseefakhtar.caloriecoach.ui.theme.CalorieCoachTheme
 import com.waseefakhtar.core.navigation.Route
+import com.waseefakhtar.onboarding_presentation.activity.ActivityScreen
 import com.waseefakhtar.onboarding_presentation.age.AgeScreen
 import com.waseefakhtar.onboarding_presentation.gender.GenderScreen
+import com.waseefakhtar.onboarding_presentation.goal.GoalScreen
 import com.waseefakhtar.onboarding_presentation.height.HeightScreen
 import com.waseefakhtar.onboarding_presentation.weight.WeightScreen
 import com.waseefakhtar.onboarding_presentation.welcome.WelcomeScreen
@@ -62,10 +64,14 @@ class MainActivity : ComponentActivity() {
 
                         }
                         composable(Route.ACTIVITY) {
-
+                            ActivityScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.GOAL) {
-
+                            GoalScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
 
