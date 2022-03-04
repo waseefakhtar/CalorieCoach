@@ -1,10 +1,11 @@
-package com.waseefakhtar.core.domain.preferences
+package com.waseefakhtar.core.data.preferences
 
 import android.content.SharedPreferences
 import com.waseefakhtar.core.domain.model.ActivityLevel
 import com.waseefakhtar.core.domain.model.Gender
 import com.waseefakhtar.core.domain.model.GoalType
 import com.waseefakhtar.core.domain.model.UserInfo
+import com.waseefakhtar.core.domain.preferences.Preferences
 
 class DefaultPreferences(
     private val sharedPref: SharedPreferences
